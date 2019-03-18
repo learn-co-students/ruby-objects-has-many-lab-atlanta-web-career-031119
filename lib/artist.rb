@@ -1,25 +1,22 @@
 require_relative './song.rb'
+require 'pry'
 
 class Artist
     def initialize(name)
         @name=name
-        @songs=[]
     end
     attr_accessor :name
-    def add_song(track)
-        @songs<<track
-        track.artist=self
+    def add_song(name)
+        name.artist=self
     end
-    def add_song_by_name(track)
-        track=Song.new(track)
+    def add_song_by_name(name)
+        track=Song.new(name)
         add_song(track)
     end
     def self.song_count
-        @song_total=0
-        return self.each {|artist| @song_total+=artist.song.length}
-        return @song_total
+        return Song.all.length
     end
     def songs
-        return @songs
+        Song.all.select {|s| s.artist==self}
     end
 end
