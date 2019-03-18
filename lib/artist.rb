@@ -15,7 +15,9 @@ class Artist
         add_song(track)
     end
     def self.song_count
-        return @songs.length
+        @song_total=0
+        return self.each {|artist| @song_total+=artist.song.length}
+        return @song_total
     end
     def songs
         return @songs
