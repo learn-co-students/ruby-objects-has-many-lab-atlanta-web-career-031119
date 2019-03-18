@@ -8,7 +8,7 @@ class Artist
     attr_accessor :name
     def add_song(track)
         @songs<<track
-        song.name
+        track.artist=@name
     end
     def songs
         return @songs
