@@ -5,4 +5,7 @@ class Author
         @name=name
     end
     attr_accessor :name
+    def posts
+        Post.all.select {|p| p.author==self}
+    end
 end
