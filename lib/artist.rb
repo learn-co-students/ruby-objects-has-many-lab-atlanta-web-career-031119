@@ -1,3 +1,5 @@
+require_relative './song.rb'
+
 class Artist
     def initialize(name)
         @name=name
