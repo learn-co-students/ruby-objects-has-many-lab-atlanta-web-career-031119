@@ -1,11 +1,19 @@
 require_relative './author.rb'
 
 class Post
-    @@posts=[]
-    def initialize(title, author)
+    @@all=[]
+    def initialize(title)
         @title=title
-        @author=author
-        @@posts<<self
+        @@all<<self
     end
     attr_accessor :title, :author
+    def self.all
+        @@all
+    end
+    def author_name
+        # if self.author
+        #     self.author.name
+        # end
+        self.author ? self.author.name : nil
+    end
 end
